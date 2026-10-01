@@ -4,14 +4,25 @@ from sklearn.model_selection import train_test_split
 
 SEED = 42
 
+def is_valid(path):
+    try:
+        data = tf.io.read_file(path)
+        tf.io.decode_image(data, channels=3, expand_animations=False)
+        return True
+    except Exception:
+        return False
+
 def get_datasets(data_dir="../data/PlantVillage", img_size=(224, 224), batch=32):
     data_dir = Path(data_dir)
     class_names = sorted(p.name for p in data_dir.iterdir() if p.is_dir())
     paths, labels = [], []
     for i, c in enumerate(class_names):
         for f in (data_dir / c).glob("*"):
-            paths.append(str(f))
-            labels.append(i)
+            if is_valid(str(f)):
+                paths.append(str(f))
+                labels.append(i)
+            else:
+                print("Skipping bad file:", f)
 
     X_train, X_tmp, y_train, y_tmp = train_test_split(
         paths, labels, test_size=0.2, stratify=labels, random_state=SEED)
