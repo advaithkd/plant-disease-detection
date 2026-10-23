@@ -2,7 +2,7 @@
 
 Classifies plant leaf photos into 15 classes (healthy and diseased pepper, potato and tomato leaves) with a fine-tuned MobileNetV2, and serves predictions through a Streamlit web app.
 
-**Live demo:** coming soon
+**Live demo:** https://plant-disease-detection-fumnxfgickl7jxzxdbjgn4.streamlit.app/
 
 ![App demo](images/app_demo.png)
 
