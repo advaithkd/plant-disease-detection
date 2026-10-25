@@ -4,7 +4,7 @@ Classifies plant leaf photos into 15 classes (healthy and diseased pepper, potat
 
 **Live demo:** https://plant-disease-detection-fumnxfgickl7jxzxdbjgn4.streamlit.app/
 
-![App demo](images/app_demo.png)
+![app_demo_V2.png](images/app_demo_V2.png)
 
 ## Results
 
